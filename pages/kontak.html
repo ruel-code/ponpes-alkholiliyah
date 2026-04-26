@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontak Kami | PP. Al-Kholiliyah</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <!-- Leaflet.js CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="../css/style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-dark': '#0d3d1f',
+                        'primary-green': '#1a5c30',
+                        'gold': '#c9a84c',
+                        'gold-light': '#e8c97a',
+                        'cream': '#f9f5eb',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="islamic-pattern">
+
+    <!-- Navbar -->
+    <nav id="main-nav" class="fixed w-full z-50 py-4 px-6 md:px-12 flex justify-between items-center nav-scrolled">
+        <div class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-gold rounded-full flex items-center justify-center text-white font-bold text-xl">A</div>
+            <div class="text-white">
+                <h1 class="font-bold leading-tight uppercase">AL-KHOLILIYAH</h1>
+                <p class="text-xs opacity-80 uppercase tracking-widest">Maron Probolinggo</p>
+            </div>
+        </div>
+        <ul class="hidden lg:flex gap-8 text-white uppercase text-sm font-medium">
+            <li><a href="../index.html" class="nav-link hover:text-gold-light transition">Home</a></li>
+            <li><a href="berita.html" class="nav-link hover:text-gold-light transition">Berita</a></li>
+            <li><a href="galeri.html" class="nav-link hover:text-gold-light transition">Galeri</a></li>
+            <li><a href="profil.html" class="nav-link hover:text-gold-light transition">Profil</a></li>
+            <li><a href="peraturan.html" class="nav-link hover:text-gold-light transition">Peraturan</a></li>
+            <li><a href="kontak.html" class="nav-link hover:text-gold-light transition">Kontak</a></li>
+        </ul>
+        <button id="mobile-menu-btn" class="lg:hidden text-white text-2xl"><i class="fas fa-bars"></i></button>
+    </nav>
+
+    <!-- Header Section -->
+    <section class="pt-40 pb-20 bg-primary-dark text-white text-center">
+        <div class="container mx-auto px-6">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4 reveal active">Hubungi Kami</h1>
+            <p class="text-gold-light tracking-widest uppercase font-medium reveal active">Kami Siap Melayani Informasi & Silaturahmi</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-16">
+                
+                <!-- Contact Info & Map -->
+                <div class="reveal">
+                    <h2 class="text-3xl font-bold text-primary-dark mb-8">Informasi Lokasi</h2>
+                    <div class="space-y-6 mb-12">
+                        <div class="flex items-start gap-6">
+                            <div class="w-14 h-14 bg-gold/10 text-gold rounded-2xl flex items-center justify-center text-2xl shrink-0">
+                                <i class="fas fa-map-marked-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg text-primary-dark">Alamat Lengkap</h4>
+                                <p class="text-gray-600">Jl. Pesantren No. 12, Desa Maron Kidul, Kec. Maron, Kab. Probolinggo, Jawa Timur 67276</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-6">
+                            <div class="w-14 h-14 bg-gold/10 text-gold rounded-2xl flex items-center justify-center text-2xl shrink-0">
+                                <i class="fab fa-whatsapp"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg text-primary-dark">WhatsApp & Telepon</h4>
+                                <p class="text-gray-600">+62 812 3456 7890 (Adm. Putra)</p>
+                                <p class="text-gray-600">+62 812 9876 5432 (Adm. Putri)</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-6">
+                            <div class="w-14 h-14 bg-gold/10 text-gold rounded-2xl flex items-center justify-center text-2xl shrink-0">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg text-primary-dark">Email Resmi</h4>
+                                <p class="text-gray-600">info@alkholiliyah-maron.sch.id</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Map Container -->
+                    <div id="map" class="w-full h-80 rounded-3xl border-8 border-cream shadow-inner overflow-hidden"></div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="reveal">
+                    <div class="bg-cream p-10 rounded-3xl shadow-xl">
+                        <h2 class="text-3xl font-bold text-primary-dark mb-4">Kirim Pesan</h2>
+                        <p class="text-gray-600 mb-10">Silakan kirimkan pertanyaan atau pesan Anda melalui formulir di bawah ini.</p>
+                        
+                        <form id="contact-form" class="space-y-6">
+                            <div>
+                                <label class="block text-sm font-bold text-primary-dark mb-2">Nama Lengkap</label>
+                                <input type="text" placeholder="Masukkan nama Anda" class="w-full px-5 py-4 bg-white border border-transparent rounded-xl focus:outline-none focus:border-gold transition shadow-sm" required>
+                            </div>
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-sm font-bold text-primary-dark mb-2">Alamat Email</label>
+                                    <input type="email" placeholder="email@contoh.com" class="w-full px-5 py-4 bg-white border border-transparent rounded-xl focus:outline-none focus:border-gold transition shadow-sm" required>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-bold text-primary-dark mb-2">Nomor HP/WA</label>
+                                    <input type="tel" placeholder="08xxxx" class="w-full px-5 py-4 bg-white border border-transparent rounded-xl focus:outline-none focus:border-gold transition shadow-sm" required>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-primary-dark mb-2">Subjek Pesan</label>
+                                <select class="w-full px-5 py-4 bg-white border border-transparent rounded-xl focus:outline-none focus:border-gold transition shadow-sm">
+                                    <option>Informasi Pendaftaran</option>
+                                    <option>Saran & Kritik</option>
+                                    <option>Lainnya</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-primary-dark mb-2">Isi Pesan</label>
+                                <textarea rows="5" placeholder="Tuliskan pesan Anda secara detail..." class="w-full px-5 py-4 bg-white border border-transparent rounded-xl focus:outline-none focus:border-gold transition shadow-sm" required></textarea>
+                            </div>
+                            <button type="submit" class="btn-gold w-full py-5 rounded-xl font-bold uppercase tracking-widest shadow-lg shadow-gold/20">
+                                Kirim Pesan Sekarang <i class="fas fa-paper-plane ml-2"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary-dark text-white pt-10 pb-10">
+        <div class="container mx-auto px-6 text-center text-white/40 text-sm">
+            <p>&copy; 2024 PP. Al-Kholiliyah Maron Probolinggo. Seluruh Hak Cipta Dilindungi.</p>
+        </div>
+    </footer>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="../js/navbar.js"></script>
+    <script src="../js/peta.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peraturan Pondok | PP. Al-Kholiliyah</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="../css/style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-dark': '#0d3d1f',
+                        'primary-green': '#1a5c30',
+                        'gold': '#c9a84c',
+                        'gold-light': '#e8c97a',
+                        'cream': '#f9f5eb',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="islamic-pattern">
+
+    <!-- Navbar -->
+    <nav id="main-nav" class="fixed w-full z-50 py-4 px-6 md:px-12 flex justify-between items-center nav-scrolled">
+        <div class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-gold rounded-full flex items-center justify-center text-white font-bold text-xl">A</div>
+            <div class="text-white">
+                <h1 class="font-bold leading-tight uppercase">AL-KHOLILIYAH</h1>
+                <p class="text-xs opacity-80 uppercase tracking-widest">Maron Probolinggo</p>
+            </div>
+        </div>
+        <ul class="hidden lg:flex gap-8 text-white uppercase text-sm font-medium">
+            <li><a href="../index.html" class="nav-link hover:text-gold-light transition">Home</a></li>
+            <li><a href="berita.html" class="nav-link hover:text-gold-light transition">Berita</a></li>
+            <li><a href="galeri.html" class="nav-link hover:text-gold-light transition">Galeri</a></li>
+            <li><a href="profil.html" class="nav-link hover:text-gold-light transition">Profil</a></li>
+            <li><a href="peraturan.html" class="nav-link hover:text-gold-light transition">Peraturan</a></li>
+            <li><a href="kontak.html" class="nav-link hover:text-gold-light transition">Kontak</a></li>
+        </ul>
+        <button id="mobile-menu-btn" class="lg:hidden text-white text-2xl"><i class="fas fa-bars"></i></button>
+    </nav>
+
+    <!-- Header Section -->
+    <section class="pt-40 pb-20 bg-primary-dark text-white text-center">
+        <div class="container mx-auto px-6">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4 reveal active">Tata Tertib & Peraturan</h1>
+            <p class="text-gold-light tracking-widest uppercase font-medium reveal active">Kedisiplinan Adalah Kunci Kesuksesan</p>
+        </div>
+    </section>
+
+    <!-- Regulations Section -->
+    <section class="py-24 bg-white">
+        <div class="container mx-auto px-6 max-w-4xl">
+            
+            <div class="mb-12 text-center reveal">
+                <h2 class="text-3xl font-bold text-primary-dark mb-4">Peraturan Umum Santri</h2>
+                <p class="text-gray-600">Seluruh santri PP. Al-Kholiliyah wajib mematuhi ketentuan yang telah ditetapkan demi terciptanya lingkungan belajar yang kondusif.</p>
+            </div>
+
+            <!-- Accordion Group -->
+            <div class="space-y-4">
+                <!-- Accordion 1 -->
+                <div class="border border-cream rounded-2xl overflow-hidden reveal">
+                    <button class="accordion-header w-full flex justify-between items-center p-6 bg-cream text-primary-dark font-bold text-left hover:bg-gold/10 transition">
+                        <span><i class="fas fa-user-check mr-4 text-gold"></i> Kewajiban Ibadah & Spiritual</span>
+                        <i class="fas fa-chevron-down transition-transform"></i>
+                    </button>
+                    <div class="accordion-content p-8 bg-white border-t border-cream hidden">
+                        <ul class="list-disc list-inside space-y-4 text-gray-600">
+                            <li>Wajib mengikuti sholat berjamaah lima waktu di Masjid tepat pada waktunya.</li>
+                            <li>Wajib mengikuti kegiatan tadarus Al-Quran dan pengajian kitab rutin sesuai jadwal.</li>
+                            <li>Wajib menjaga adab dan akhlak baik kepada guru, asatidz, maupun sesama santri.</li>
+                            <li>Dilarang meninggalkan area pondok tanpa izin tertulis dari pengurus.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Accordion 2 -->
+                <div class="border border-cream rounded-2xl overflow-hidden reveal">
+                    <button class="accordion-header w-full flex justify-between items-center p-6 bg-cream text-primary-dark font-bold text-left hover:bg-gold/10 transition">
+                        <span><i class="fas fa-tshirt mr-4 text-gold"></i> Ketentuan Berpakaian</span>
+                        <i class="fas fa-chevron-down transition-transform"></i>
+                    </button>
+                    <div class="accordion-content p-8 bg-white border-t border-cream hidden">
+                        <ul class="list-disc list-inside space-y-4 text-gray-600">
+                            <li>Santri Putra: Wajib menggunakan sarung, baju takwa (koko), dan peci selama berada di lingkungan pendidikan.</li>
+                            <li>Santri Putri: Wajib menggunakan busana muslimah yang longgar, tidak menerawang, dan jilbab yang menutup dada.</li>
+                            <li>Dilarang menggunakan pakaian yang bergambar atau bertulisan yang tidak sopan.</li>
+                            <li>Wajib menjaga kebersihan dan kerapian pakaian setiap saat.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Accordion 3 -->
+                <div class="border border-cream rounded-2xl overflow-hidden reveal">
+                    <button class="accordion-header w-full flex justify-between items-center p-6 bg-cream text-primary-dark font-bold text-left hover:bg-gold/10 transition">
+                        <span><i class="fas fa-mobile-alt mr-4 text-gold"></i> Larangan Barang Elektronik</span>
+                        <i class="fas fa-chevron-down transition-transform"></i>
+                    </button>
+                    <div class="accordion-content p-8 bg-white border-t border-cream hidden">
+                        <p class="text-gray-600 mb-4">Demi kefokusan dalam menuntut ilmu, pesantren menetapkan aturan ketat terkait perangkat elektronik:</p>
+                        <ul class="list-disc list-inside space-y-4 text-gray-600">
+                            <li>Santri dilarang membawa Smartphone, Tablet, atau Laptop pribadi ke area asrama.</li>
+                            <li>Komunikasi dengan orang tua difasilitasi melalui telepon kantor pondok sesuai jadwal yang ditentukan.</li>
+                            <li>Pelanggaran terhadap aturan ini akan berakibat pada penyitaan barang selamanya dan sanksi kedisiplinan.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Accordion 4 -->
+                <div class="border border-cream rounded-2xl overflow-hidden reveal">
+                    <button class="accordion-header w-full flex justify-between items-center p-6 bg-cream text-primary-dark font-bold text-left hover:bg-gold/10 transition">
+                        <span><i class="fas fa-clock mr-4 text-gold"></i> Jam Kunjungan Wali Santri</span>
+                        <i class="fas fa-chevron-down transition-transform"></i>
+                    </button>
+                    <div class="accordion-content p-8 bg-white border-t border-cream hidden">
+                        <ul class="list-disc list-inside space-y-4 text-gray-600">
+                            <li>Kunjungan diperbolehkan hanya pada hari Minggu pekan ke-2 dan ke-4 setiap bulannya.</li>
+                            <li>Waktu kunjungan dimulai pukul 08.00 s/d 16.00 WIB.</li>
+                            <li>Wali santri wajib melapor ke pos keamanan dan berpakaian sopan saat berkunjung.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Note -->
+            <div class="mt-16 p-8 bg-gold/5 border-l-4 border-gold rounded-r-2xl reveal">
+                <h4 class="font-bold text-primary-dark mb-2">Penting:</h4>
+                <p class="text-gray-600 text-sm italic">Peraturan ini dapat berubah sewaktu-waktu sesuai dengan kebijakan pengasuh pondok pesantren untuk kemaslahatan bersama para santri.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary-dark text-white pt-10 pb-10">
+        <div class="container mx-auto px-6 text-center text-white/40 text-sm">
+            <p>&copy; 2024 PP. Al-Kholiliyah Maron Probolinggo. Seluruh Hak Cipta Dilindungi.</p>
+        </div>
+    </footer>
+
+    <script src="../js/navbar.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>
