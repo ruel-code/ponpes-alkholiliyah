@@ -1,29 +1,13 @@
-/**
- * peta.js
- * Inisialisasi peta interaktif Leaflet.js
- */
-
 document.addEventListener('DOMContentLoaded', () => {
     const mapContainer = document.getElementById('map');
-    
     if (mapContainer) {
-        // Koordinat Maron Probolinggo
-        const lat = -7.8123;
-        const lng = 113.1456;
-        const zoom = 15;
-
-        // Inisialisasi peta
-        const map = L.map('map').setView([lat, lng], zoom);
-
-        // Tambahkan Tile Layer (OpenStreetMap)
+        const lat = -7.8300;
+        const lng = 113.1500;
+        const map = L.map('map').setView([lat, lng], 15);
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            attribution: '&copy; OpenStreetMap contributors'
         }).addTo(map);
-
-        // Tambahkan Marker Custom
         const marker = L.marker([lat, lng]).addTo(map);
-        
-        // Popup saat marker diklik
-        marker.bindPopup("<b>PP. Al-Kholiliyah</b><br>Maron, Probolinggo").openPopup();
+        marker.bindPopup("<b>PP. Al-Kholiliyah Al-Mubarokah</b><br>Brani Kulon, Maron, Probolinggo").openPopup();
     }
 });

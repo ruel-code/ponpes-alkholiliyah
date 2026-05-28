@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Galeri | PP. Al-Kholiliyah</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
     <link rel="stylesheet" href="../css/style.css">
     <script>
@@ -12,11 +13,15 @@
             theme: {
                 extend: {
                     colors: {
-                        'primary-dark': '#0d3d1f',
-                        'primary-green': '#1a5c30',
-                        'gold': '#c9a84c',
-                        'gold-light': '#e8c97a',
+                        'primary': '#0d3d1f',
+                        'secondary': '#1a5c30',
+                        'accent': '#c9a84c',
+                        'accent-light': '#e8c97a',
                         'cream': '#f9f5eb',
+                    },
+                    fontFamily: {
+                        'lora': ['Lora', 'serif'],
+                        'poppins': ['Poppins', 'sans-serif'],
                     }
                 }
             }
@@ -25,113 +30,146 @@
 </head>
 <body class="islamic-pattern">
 
-    <!-- Navbar -->
-    <nav id="main-nav" class="fixed w-full z-50 py-4 px-6 md:px-12 flex justify-between items-center nav-scrolled">
+    <nav id="main-nav" class="fixed w-full z-50 transition-all duration-300 py-3 px-6 md:px-12 flex justify-between items-center">
         <div class="flex items-center gap-3">
-            <div class="w-10 h-10 bg-gold rounded-full flex items-center justify-center text-white font-bold text-xl">A</div>
-            <div class="text-white">
-                <h1 class="font-bold leading-tight uppercase">AL-KHOLILIYAH</h1>
-                <p class="text-xs opacity-80 uppercase tracking-widest">Maron Probolinggo</p>
+            <img src="../images/images.png" alt="Logo Al-Kholiliyah" class="w-11 h-11 object-contain rounded-full">
+            <div>
+                <h1 class="font-arabic text-lg leading-tight text-white">معهد الخليلية المباركة</h1>
+                <p class="text-[10px] md:text-xs font-bold uppercase tracking-wide text-white/80">PP. Al-Kholiliyah Al-Mubarokah</p>
             </div>
         </div>
-        <ul class="hidden lg:flex gap-8 text-white uppercase text-sm font-medium">
-            <li><a href="../index.html" class="nav-link hover:text-gold-light transition">Home</a></li>
-            <li><a href="berita.html" class="nav-link hover:text-gold-light transition">Berita</a></li>
-            <li><a href="galeri.html" class="nav-link hover:text-gold-light transition">Galeri</a></li>
-            <li><a href="profil.html" class="nav-link hover:text-gold-light transition">Profil</a></li>
-            <li><a href="peraturan.html" class="nav-link hover:text-gold-light transition">Peraturan</a></li>
-            <li><a href="kontak.html" class="nav-link hover:text-gold-light transition">Kontak</a></li>
-        </ul>
-        <button id="mobile-menu-btn" class="lg:hidden text-white text-2xl"><i class="fas fa-bars"></i></button>
+        <div class="hidden lg:flex items-center gap-6">
+            <ul class="flex gap-5 text-white text-xs font-bold uppercase tracking-wider items-center">
+                <li><a href="../index.html" class="nav-link-item">Home</a></li>
+                <li><a href="berita.html" class="nav-link-item">Berita</a></li>
+                <li><a href="galeri.html" class="nav-link-item active">Galeri</a></li>
+                <li><a href="profil.html" class="nav-link-item">Profil</a></li>
+                <li><a href="peraturan.html" class="nav-link-item">Peraturan</a></li>
+                <li><a href="kontak.html" class="nav-link-item">Kontak</a></li>
+            </ul>
+        </div>
+        <button id="mobile-menu-btn" class="lg:hidden text-white text-2xl">
+            <i class="fas fa-bars"></i>
+        </button>
     </nav>
 
-    <!-- Header Section -->
-    <section class="pt-40 pb-20 bg-primary-dark text-white text-center">
-        <div class="container mx-auto px-6">
-            <h1 class="text-4xl md:text-5xl font-bold mb-4 reveal active">Galeri Pesantren</h1>
-            <p class="text-gold-light tracking-widest uppercase font-medium reveal active">Visualisasi Kehidupan di Al-Kholiliyah</p>
+    <div id="mobile-menu" class="hidden fixed top-0 left-0 w-full h-full bg-primary/95 z-40 flex flex-col items-center justify-center gap-8">
+        <button id="close-menu" class="absolute top-6 right-6 text-white text-3xl"><i class="fas fa-times"></i></button>
+        <a href="../index.html" class="text-white text-2xl font-bold uppercase tracking-wider">Home</a>
+        <a href="berita.html" class="text-white text-2xl font-bold uppercase tracking-wider">Berita</a>
+        <a href="galeri.html" class="text-white text-2xl font-bold uppercase tracking-wider">Galeri</a>
+        <a href="profil.html" class="text-white text-2xl font-bold uppercase tracking-wider">Profil</a>
+        <a href="peraturan.html" class="text-white text-2xl font-bold uppercase tracking-wider">Peraturan</a>
+        <a href="kontak.html" class="text-white text-2xl font-bold uppercase tracking-wider">Kontak</a>
+    </div>
+
+    <section class="hero-mini">
+        <div class="container mx-auto px-6 text-center">
+            <p class="font-arabic text-accent text-lg mb-2">معرض الصور</p>
+            <h1 class="font-lora text-3xl md:text-4xl font-semibold text-white">Galeri Foto</h1>
+            <div class="section-title-line mx-auto mt-4"></div>
         </div>
     </section>
 
-    <!-- Gallery Grid Section -->
-    <section class="py-24 bg-white">
+    <section class="py-16 bg-cream">
         <div class="container mx-auto px-6">
-            
-            <!-- Filter Buttons -->
-            <div class="flex flex-wrap justify-center gap-4 mb-16 reveal">
-                <button class="filter-btn px-8 py-3 rounded-full bg-gold text-white font-bold transition" data-filter="all">Semua</button>
-                <button class="filter-btn px-8 py-3 rounded-full bg-cream text-primary-dark hover:bg-gold hover:text-white transition font-medium" data-filter="kegiatan">Kegiatan</button>
-                <button class="filter-btn px-8 py-3 rounded-full bg-cream text-primary-dark hover:bg-gold hover:text-white transition font-medium" data-filter="fasilitas">Fasilitas</button>
-                <button class="filter-btn px-8 py-3 rounded-full bg-cream text-primary-dark hover:bg-gold hover:text-white transition font-medium" data-filter="prestasi">Prestasi</button>
+            <div class="flex flex-wrap gap-3 mb-10 justify-center">
+                <button class="filter-btn active" data-filter="all">Semua</button>
+                <button class="filter-btn" data-filter="kegiatan">Kegiatan</button>
+                <button class="filter-btn" data-filter="fasilitas">Fasilitas</button>
+                <button class="filter-btn" data-filter="prestasi">Prestasi</button>
             </div>
 
-            <!-- Grid -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8" id="galeri-container">
-                <!-- Item 1 -->
-                <div class="galeri-item group relative overflow-hidden rounded-2xl reveal" data-category="kegiatan">
-                    <img src="https://picsum.photos/id/30/800/600" alt="Galeri" class="w-full h-80 object-cover transition duration-500 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-primary-dark/60 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center text-white p-6">
-                        <p class="text-gold font-bold uppercase tracking-widest text-sm mb-2">Kegiatan</p>
-                        <h4 class="text-xl font-bold text-center">Pengajian Rutin Mingguan</h4>
-                        <button class="mt-6 w-12 h-12 bg-white text-primary-dark rounded-full flex items-center justify-center"><i class="fas fa-search-plus"></i></button>
-                    </div>
+            <div class="gallery-grid max-w-5xl mx-auto">
+                <div class="gallery-item galeri-item" data-category="kegiatan">
+                    <img src="../images/Momen bahagia para santri bersama segenap pengasuh pada hari raya idul adha tahun 2019.jpg" alt="Kegiatan" class="w-full h-52 object-cover">
                 </div>
-                <!-- Item 2 -->
-                <div class="galeri-item group relative overflow-hidden rounded-2xl reveal" data-category="fasilitas">
-                    <img src="https://picsum.photos/id/31/800/600" alt="Galeri" class="w-full h-80 object-cover transition duration-500 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-primary-dark/60 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center text-white p-6">
-                        <p class="text-gold font-bold uppercase tracking-widest text-sm mb-2">Fasilitas</p>
-                        <h4 class="text-xl font-bold text-center">Perpustakaan Utama</h4>
-                        <button class="mt-6 w-12 h-12 bg-white text-primary-dark rounded-full flex items-center justify-center"><i class="fas fa-search-plus"></i></button>
-                    </div>
+                <div class="gallery-item galeri-item" data-category="kegiatan">
+                    <img src="../images/Momen bahagia para santri bersama segenap pengasuh pada hari raya idul adha tahun 2019 (1).jpg" alt="Kegiatan" class="w-full h-52 object-cover">
                 </div>
-                <!-- Item 3 -->
-                <div class="galeri-item group relative overflow-hidden rounded-2xl reveal" data-category="prestasi">
-                    <img src="https://picsum.photos/id/32/800/600" alt="Galeri" class="w-full h-80 object-cover transition duration-500 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-primary-dark/60 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center text-white p-6">
-                        <p class="text-gold font-bold uppercase tracking-widest text-sm mb-2">Prestasi</p>
-                        <h4 class="text-xl font-bold text-center">Juara MQK Provinsi</h4>
-                        <button class="mt-6 w-12 h-12 bg-white text-primary-dark rounded-full flex items-center justify-center"><i class="fas fa-search-plus"></i></button>
-                    </div>
+                <div class="gallery-item galeri-item" data-category="kegiatan">
+                    <img src="../images/Momen bahagia para santri bersama segenap pengasuh pada hari raya idul adha tahun 2019 (2).jpg" alt="Kegiatan" class="w-full h-52 object-cover">
                 </div>
-                <!-- Item 4 -->
-                <div class="galeri-item group relative overflow-hidden rounded-2xl reveal" data-category="kegiatan">
-                    <img src="https://picsum.photos/id/33/800/600" alt="Galeri" class="w-full h-80 object-cover transition duration-500 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-primary-dark/60 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center text-white p-6">
-                        <p class="text-gold font-bold uppercase tracking-widest text-sm mb-2">Kegiatan</p>
-                        <h4 class="text-xl font-bold text-center">Sholat Berjamaah</h4>
-                        <button class="mt-6 w-12 h-12 bg-white text-primary-dark rounded-full flex items-center justify-center"><i class="fas fa-search-plus"></i></button>
-                    </div>
+                <div class="gallery-item galeri-item" data-category="kegiatan">
+                    <img src="../images/Momen bahagia para santri bersama segenap pengasuh pada hari raya idul adha tahun 2019 (3).jpg" alt="Kegiatan" class="w-full h-52 object-cover">
                 </div>
-                <!-- Item 5 -->
-                <div class="galeri-item group relative overflow-hidden rounded-2xl reveal" data-category="fasilitas">
-                    <img src="https://picsum.photos/id/34/800/600" alt="Galeri" class="w-full h-80 object-cover transition duration-500 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-primary-dark/60 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center text-white p-6">
-                        <p class="text-gold font-bold uppercase tracking-widest text-sm mb-2">Fasilitas</p>
-                        <h4 class="text-xl font-bold text-center">Gedung Asrama Putra</h4>
-                        <button class="mt-6 w-12 h-12 bg-white text-primary-dark rounded-full flex items-center justify-center"><i class="fas fa-search-plus"></i></button>
-                    </div>
+                <div class="gallery-item galeri-item" data-category="kegiatan">
+                    <img src="../images/Makan bersama para santri bersama segenap keluarga ndalem dan alumni pada hari raya idul adha 14.jpg" alt="Kegiatan" class="w-full h-52 object-cover">
                 </div>
-                <!-- Item 6 -->
-                <div class="galeri-item group relative overflow-hidden rounded-2xl reveal" data-category="kegiatan">
-                    <img src="https://picsum.photos/id/35/800/600" alt="Galeri" class="w-full h-80 object-cover transition duration-500 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-primary-dark/60 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center text-white p-6">
-                        <p class="text-gold font-bold uppercase tracking-widest text-sm mb-2">Kegiatan</p>
-                        <h4 class="text-xl font-bold text-center">Kerja Bakti Santri</h4>
-                        <button class="mt-6 w-12 h-12 bg-white text-primary-dark rounded-full flex items-center justify-center"><i class="fas fa-search-plus"></i></button>
-                    </div>
+                <div class="gallery-item galeri-item" data-category="kegiatan">
+                    <img src="../images/PG ASHAB JALJALUT menghadiri persahabatan di ponpes Ainul Hasan Wonorejo,Maron.jpg" alt="Kegiatan" class="w-full h-52 object-cover">
+                </div>
+                <div class="gallery-item galeri-item" data-category="kegiatan">
+                    <img src="../images/Tahun baru semangat baru.jpg" alt="Kegiatan" class="w-full h-52 object-cover">
+                </div>
+                <div class="gallery-item galeri-item" data-category="kegiatan">
+                    <img src="../images/Tahun baru semangat baru (1).jpg" alt="Kegiatan" class="w-full h-52 object-cover">
+                </div>
+                <div class="gallery-item galeri-item" data-category="kegiatan">
+                    <img src="../images/foto.png" alt="Kegiatan" class="w-full h-52 object-cover">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-primary-dark text-white pt-10 pb-10">
-        <div class="container mx-auto px-6 text-center text-white/40 text-sm">
-            <p>&copy; 2024 PP. Al-Kholiliyah Maron Probolinggo. Seluruh Hak Cipta Dilindungi.</p>
+    <!-- Instagram Feed -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-6 text-center mb-10">
+            <div class="section-title-arabic">إنستغرام</div>
+            <h2 class="section-title-latin">Instagram Pondok</h2>
+            <div class="section-title-line"></div>
+        </div>
+        <div class="container mx-auto px-6 max-w-lg flex justify-center">
+            <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/CJeKH8XAm-c/" data-instgrm-version="14" style="background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px auto; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"></blockquote>
+        </div>
+    </section>
+
+    <footer class="pt-16 pb-8">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-10 pb-12 mb-8" style="border-bottom: 0.5px solid rgba(255,255,255,0.1);">
+                <div class="md:col-span-2">
+                    <div class="flex items-center gap-3 mb-5">
+                        <img src="../images/images.png" alt="Logo Al-Kholiliyah" class="w-11 h-11 object-contain rounded-full">
+                        <div>
+                            <p class="font-arabic text-lg text-accent">معهد الخليلية المباركة</p>
+                            <p class="text-white/60 text-xs uppercase tracking-wider">PP. Al-Kholiliyah Al-Mubarokah</p>
+                        </div>
+                    </div>
+                    <p class="text-white/50 text-sm max-w-md leading-relaxed mb-6">Lembaga pendidikan Islam yang berdedikasi mencetak generasi unggul, berakhlak mulia, dan berpegang teguh pada Al-Quran dan Sunnah.</p>
+                    <div class="flex gap-3">
+                        <a href="#" class="w-9 h-9 rounded-full bg-white/5 flex items-center justify-center text-white/60 hover:bg-accent hover:text-primary transition"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="w-9 h-9 rounded-full bg-white/5 flex items-center justify-center text-white/60 hover:bg-accent hover:text-primary transition"><i class="fab fa-twitter"></i></a>
+                        <a href="https://instagram.com/ponpes.alkholiliyahbrani" target="_blank" class="w-9 h-9 rounded-full bg-white/5 flex items-center justify-center text-white/60 hover:bg-accent hover:text-primary transition"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="w-9 h-9 rounded-full bg-white/5 flex items-center justify-center text-white/60 hover:bg-accent hover:text-primary transition"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-accent text-sm font-bold uppercase tracking-wider mb-5">Navigasi</h4>
+                    <ul class="space-y-3 text-white/50 text-sm">
+                        <li><a href="../index.html" class="hover:text-accent transition">Home</a></li>
+                        <li><a href="profil.html" class="hover:text-accent transition">Profil</a></li>
+                        <li><a href="berita.html" class="hover:text-accent transition">Berita</a></li>
+                        <li><a href="galeri.html" class="hover:text-accent transition">Galeri</a></li>
+                        <li><a href="kontak.html" class="hover:text-accent transition">Kontak</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-accent text-sm font-bold uppercase tracking-wider mb-5">Kontak</h4>
+                    <ul class="space-y-3 text-white/50 text-sm">
+                        <li class="flex gap-2"><i class="fas fa-map-marker-alt text-accent mt-1"></i> Desa Brani Kulon, Kec. Maron, Kab. Probolinggo 67276</li>
+                        <li class="flex gap-2"><i class="fab fa-whatsapp text-accent mt-1"></i> +62 812 3456 7890</li>
+                        <li class="flex gap-2"><i class="fab fa-instagram text-accent mt-1"></i> @ponpes.alkholiliyahbrani</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="text-center text-white/30 text-xs">
+                <p>&copy; 2025 PP. Al-Kholiliyah Al-Mubarokah. All rights reserved.</p>
+            </div>
         </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script async src="//www.instagram.com/embed.js"></script>
     <script src="../js/navbar.js"></script>
     <script src="../js/galeri.js"></script>
     <script src="../js/main.js"></script>

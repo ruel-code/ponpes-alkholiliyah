@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profil Pondok | PP. Al-Kholiliyah</title>
+    <title>Profil | PP. Al-Kholiliyah</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
     <link rel="stylesheet" href="../css/style.css">
@@ -12,11 +12,15 @@
             theme: {
                 extend: {
                     colors: {
-                        'primary-dark': '#0d3d1f',
-                        'primary-green': '#1a5c30',
-                        'gold': '#c9a84c',
-                        'gold-light': '#e8c97a',
+                        'primary': '#0d3d1f',
+                        'secondary': '#1a5c30',
+                        'accent': '#c9a84c',
+                        'accent-light': '#e8c97a',
                         'cream': '#f9f5eb',
+                    },
+                    fontFamily: {
+                        'lora': ['Lora', 'serif'],
+                        'poppins': ['Poppins', 'sans-serif'],
                     }
                 }
             }
@@ -26,143 +30,173 @@
 <body class="islamic-pattern">
 
     <!-- Navbar -->
-    <nav id="main-nav" class="fixed w-full z-50 py-3 px-6 md:px-12 flex justify-between items-center nav-white">
-        <div class="flex items-center gap-4">
-            <img src="../images/images.jpg" alt="Logo Al-Kholiliyah" class="w-14 h-14 object-contain">
-            <div class="logo-text text-primary-dark">
-                <h1 class="font-arabic text-xl leading-none">معهد الخليلية للدراسات الإسلامية</h1>
-                <p class="text-[10px] md:text-xs font-bold uppercase tracking-tight">YAYASAN AL-KHOLILIYAH BRANI KULON</p>
-                <p class="text-[9px] md:text-[10px] opacity-80 uppercase tracking-widest -mt-1">Maron - Probolinggo</p>
+    <nav id="main-nav" class="fixed w-full z-50 transition-all duration-300 py-3 px-6 md:px-12 flex justify-between items-center">
+        <div class="flex items-center gap-3">
+            <img src="../images/images.png" alt="Logo Al-Kholiliyah" class="w-11 h-11 object-contain rounded-full">
+            <div>
+                <h1 class="font-arabic text-lg leading-tight text-white">معهد الخليلية المباركة</h1>
+                <p class="text-[10px] md:text-xs font-bold uppercase tracking-wide text-white/80">PP. Al-Kholiliyah Al-Mubarokah</p>
             </div>
         </div>
-        <div class="hidden lg:flex items-center gap-8">
-            <ul class="flex gap-6 text-gray-800 uppercase text-xs font-bold tracking-wider items-center">
-                <li><a href="../index.html" class="nav-link-item nav-link-dark hover:text-gold transition">Home</a></li>
-                <li><a href="berita.html" class="nav-link-item nav-link-dark hover:text-gold transition">Berita</a></li>
-                <li>
-                    <a href="galeri.html" class="nav-link-item nav-link-dark hover:text-gold transition flex items-center">
-                        Galeri <i class="fas fa-chevron-down dropdown-icon"></i>
-                    </a>
-                </li>
-                <li><a href="profil.html" class="nav-link-item nav-link-dark active hover:text-gold transition">Profil</a></li>
-                <li>
-                    <a href="peraturan.html" class="nav-link-item nav-link-dark hover:text-gold transition flex items-center">
-                        Peraturan <i class="fas fa-chevron-down dropdown-icon"></i>
-                    </a>
-                </li>
-                <li><a href="kontak.html" class="nav-link-item nav-link-dark hover:text-gold transition">Kontak</a></li>
+        <div class="hidden lg:flex items-center gap-6">
+            <ul class="flex gap-5 text-white text-xs font-bold uppercase tracking-wider items-center">
+                <li><a href="../index.html" class="nav-link-item">Home</a></li>
+                <li><a href="berita.html" class="nav-link-item">Berita</a></li>
+                <li><a href="galeri.html" class="nav-link-item">Galeri</a></li>
+                <li><a href="profil.html" class="nav-link-item active">Profil</a></li>
+                <li><a href="peraturan.html" class="nav-link-item">Peraturan</a></li>
+                <li><a href="kontak.html" class="nav-link-item">Kontak</a></li>
             </ul>
-            <button class="nav-link-item text-gray-800 hover:text-gold transition ml-4">
-                <i class="fas fa-search"></i>
-            </button>
         </div>
-        <button id="mobile-menu-btn" class="lg:hidden text-primary-dark text-2xl"><i class="fas fa-bars"></i></button>
+        <button id="mobile-menu-btn" class="lg:hidden text-white text-2xl">
+            <i class="fas fa-bars"></i>
+        </button>
     </nav>
 
-    <!-- Header Section -->
-    <section class="pt-40 pb-20 bg-primary-dark text-white text-center">
-        <div class="container mx-auto px-6">
-            <h1 class="text-4xl md:text-5xl font-bold mb-4 reveal active">Profil Pondok</h1>
-            <p class="text-gold-light tracking-widest uppercase font-medium reveal active">Mengenal Lebih Dekat Al-Kholiliyah</p>
-        </div>
-    </section>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden fixed top-0 left-0 w-full h-full bg-primary/95 z-40 flex flex-col items-center justify-center gap-8">
+        <button id="close-menu" class="absolute top-6 right-6 text-white text-3xl"><i class="fas fa-times"></i></button>
+        <a href="../index.html" class="text-white text-2xl font-bold uppercase tracking-wider">Home</a>
+        <a href="berita.html" class="text-white text-2xl font-bold uppercase tracking-wider">Berita</a>
+        <a href="galeri.html" class="text-white text-2xl font-bold uppercase tracking-wider">Galeri</a>
+        <a href="profil.html" class="text-white text-2xl font-bold uppercase tracking-wider">Profil</a>
+        <a href="peraturan.html" class="text-white text-2xl font-bold uppercase tracking-wider">Peraturan</a>
+        <a href="kontak.html" class="text-white text-2xl font-bold uppercase tracking-wider">Kontak</a>
+    </div>
 
-    <!-- Sejarah Section -->
-    <section class="py-24 bg-white">
-        <div class="container mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
-            <div class="reveal">
-                <img src="https://picsum.photos/id/1019/800/1000" alt="Sejarah" class="rounded-3xl shadow-2xl border-8 border-cream">
-            </div>
-            <div class="reveal">
-                <p class="text-gold font-bold uppercase tracking-widest mb-2">Sejarah Singkat</p>
-                <h2 class="text-3xl md:text-4xl font-bold text-primary-dark mb-6">Berdiri Di Atas Khidmah & Ilmu</h2>
-                <div class="prose prose-lg text-gray-600 space-y-6">
-                    <p>Pondok Pesantren Al-Kholiliyah didirikan pada tahun 1995 oleh KH. Ahmad Kholili, seorang ulama kharismatik yang memiliki visi besar untuk mencetak generasi yang tidak hanya mahir dalam literatur klasik (Kitab Kuning) tetapi juga mampu menjawab tantangan modernitas.</p>
-                    <p>Berawal dari sebuah musholla bambu dan beberapa santri dari desa sekitar Maron, Probolinggo, kini Al-Kholiliyah telah berkembang menjadi institusi pendidikan Islam yang menaungi ribuan santri dari seluruh penjuru nusantara.</p>
-                    <p>Dedikasi dalam menjaga kemurnian sanad keilmuan dan keteguhan dalam memegang prinsip Ahlu Sunnah wal Jamaah menjadi fondasi utama pondok ini hingga sekarang.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Visi Misi Section -->
-    <section class="py-24 bg-cream islamic-pattern">
+    <!-- Hero Mini -->
+    <section class="hero-mini">
         <div class="container mx-auto px-6 text-center">
-            <div class="max-w-4xl mx-auto mb-20 reveal">
-                <h2 class="text-4xl font-bold text-primary-dark mb-6">Visi & Misi</h2>
-                <div class="w-24 h-1 bg-gold mx-auto"></div>
+            <p class="font-arabic text-accent text-lg mb-2">التعريف بالمعهد</p>
+            <h1 class="font-lora text-3xl md:text-4xl font-semibold text-white">Profil Pondok</h1>
+            <div class="section-title-line mx-auto mt-4"></div>
+        </div>
+    </section>
+
+    <!-- Sejarah -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <div class="text-center mb-12">
+                <div class="section-title-arabic">تاريخ المعهد</div>
+                <h2 class="section-title-latin">Sejarah Berdiri</h2>
+                <div class="section-title-line"></div>
             </div>
-            
-            <div class="grid md:grid-cols-2 gap-12">
-                <div class="bg-white p-12 rounded-3xl shadow-xl reveal">
-                    <div class="w-16 h-16 bg-gold text-white rounded-2xl flex items-center justify-center text-3xl mx-auto mb-8 shadow-lg shadow-gold/20">
-                        <i class="fas fa-eye"></i>
+            <div class="card reveal">
+                <p class="text-sm text-gray-600 leading-relaxed mb-4">
+                    Pondok Pesantren Al-Kholiliyah Al-Mubarokah didirikan pada tahun 1995 M di Desa Brani Kulon, Kecamatan Maron, Kabupaten Probolinggo. Berawal dari sebuah majelis ta'lim kecil yang diadakan di musholla desa, pondok ini tumbuh menjadi lembaga pendidikan Islam yang kini menaungi tiga unit pendidikan formal.
+                </p>
+                <p class="text-sm text-gray-600 leading-relaxed mb-4">
+                    Nama "Al-Kholiliyah" diambil dari nama pendiri sebagai bentuk penghormatan atas perjuangan beliau dalam mendakwahkan ilmu agama. Sedangkan "Al-Mubarokah" berarti yang diberkahi, menjadi harapan agar pondok ini senantiasa mendapatkan keberkahan dari Allah SWT.
+                </p>
+                <p class="text-sm text-gray-600 leading-relaxed">
+                    Sejak awal berdiri, pondok ini berkomitmen untuk mencetak generasi yang berakhlak mulia, menguasai ilmu agama dan ilmu umum secara seimbang, serta siap mengabdi kepada masyarakat.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Visi & Misi -->
+    <section class="py-20 bg-cream">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <div class="text-center mb-12">
+                <div class="section-title-arabic">الرؤية والرسالة</div>
+                <h2 class="section-title-latin">Visi & Misi</h2>
+                <div class="section-title-line"></div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="card reveal">
+                    <div class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-eye text-accent text-xl"></i>
                     </div>
-                    <h3 class="text-2xl font-bold text-primary-dark mb-6">Visi</h3>
-                    <p class="text-gray-600 italic text-lg leading-relaxed">
-                        "Terwujudnya pusat keunggulan pendidikan Islam yang integratif, mencetak generasi mukmin yang cerdas, berintegritas, dan berwawasan global berdasarkan nilai-nilai Qur'ani."
-                    </p>
+                    <h3 class="font-lora text-lg font-semibold text-primary mb-3">Visi</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">Terwujudnya generasi Islam yang unggul dalam ilmu pengetahuan, berakhlak mulia, dan berpegang teguh pada Al-Quran dan Sunnah.</p>
                 </div>
-                <div class="bg-white p-12 rounded-3xl shadow-xl reveal">
-                    <div class="w-16 h-16 bg-primary-green text-white rounded-2xl flex items-center justify-center text-3xl mx-auto mb-8 shadow-lg shadow-primary-green/20">
-                        <i class="fas fa-bullseye"></i>
+                <div class="card reveal">
+                    <div class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-bullseye text-accent text-xl"></i>
                     </div>
-                    <h3 class="text-2xl font-bold text-primary-dark mb-6">Misi</h3>
-                    <ul class="text-left space-y-4 text-gray-600">
-                        <li class="flex gap-4">
-                            <i class="fas fa-check text-gold mt-1"></i>
-                            <span>Menyelenggarakan pendidikan tahfidzul quran dan kajian kitab kuning secara intensif.</span>
-                        </li>
-                        <li class="flex gap-4">
-                            <i class="fas fa-check text-gold mt-1"></i>
-                            <span>Mengintegrasikan kurikulum pesantren dengan pendidikan formal yang berkualitas tinggi.</span>
-                        </li>
-                        <li class="flex gap-4">
-                            <i class="fas fa-check text-gold mt-1"></i>
-                            <span>Membentuk karakter santri melalui pembiasaan adab dan akhlakul karimah.</span>
-                        </li>
-                        <li class="flex gap-4">
-                            <i class="fas fa-check text-gold mt-1"></i>
-                            <span>Mengembangkan potensi kewirausahaan dan keterampilan santri.</span>
-                        </li>
+                    <h3 class="font-lora text-lg font-semibold text-primary mb-3">Misi</h3>
+                    <ul class="text-sm text-gray-600 leading-relaxed space-y-2">
+                        <li><i class="fas fa-check text-accent mr-2"></i>Menyelenggarakan pendidikan Islam yang berkualitas</li>
+                        <li><i class="fas fa-check text-accent mr-2"></i>Membentuk karakter santri yang berakhlak karimah</li>
+                        <li><i class="fas fa-check text-accent mr-2"></i>Mengintegrasikan ilmu agama dan ilmu umum</li>
+                        <li><i class="fas fa-check text-accent mr-2"></i>Menyiapkan kader pemimpin umat yang amanah</li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Pengasuh Section -->
-    <section class="py-24 bg-white">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16 reveal">
-                <h2 class="text-3xl md:text-5xl font-bold text-primary-dark mb-4">Pengasuh Pondok</h2>
-                <p class="text-gold font-bold tracking-widest uppercase">Murobbi Ruuhina</p>
+    <!-- Pengasuh -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <div class="text-center mb-12">
+                <div class="section-title-arabic">مشايخ المعهد</div>
+                <h2 class="section-title-latin">Profil Pengasuh</h2>
+                <div class="section-title-line"></div>
             </div>
-
-            <div class="flex flex-col md:flex-row items-center gap-12 max-w-5xl mx-auto bg-cream rounded-3xl overflow-hidden reveal">
-                <div class="md:w-1/2 h-[500px]">
-                    <img src="https://picsum.photos/id/1025/800/1000" alt="Kyai" class="w-full h-full object-cover">
-                </div>
-                <div class="md:w-1/2 p-12">
-                    <h3 class="text-3xl font-bold text-primary-dark mb-2">KH. Ahmad Kholili, Lc.</h3>
-                    <p class="text-gold font-bold mb-6 italic">Pendiri & Pengasuh Utama</p>
-                    <p class="text-gray-600 leading-relaxed mb-8">
-                        Beliau merupakan alumni Universitas Al-Azhar, Mesir. Dengan latar belakang keilmuan yang kuat, beliau mendedikasikan hidupnya untuk mengembangkan dakwah dan pendidikan di tanah kelahirannya, Maron, Probolinggo.
-                    </p>
-                    <div class="flex gap-4">
-                        <div class="p-3 bg-white rounded-full text-primary-dark"><i class="fas fa-quote-left"></i></div>
-                        <p class="text-primary-dark font-medium italic italic">"Ilmu tanpa adab ibarat api tanpa kayu bakar, dan adab tanpa ilmu ibarat ruh tanpa jasad."</p>
-                    </div>
-                </div>
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Isi akan ditambahkan -->
             </div>
         </div>
     </section>
 
-    <!-- Footer (Same as index) -->
-    <footer class="bg-primary-dark text-white pt-20 pb-10">
-        <!-- Content same as index.html -->
-        <div class="container mx-auto px-6 text-center text-white/40 text-sm">
-            <p>&copy; 2024 PP. Al-Kholiliyah Maron Probolinggo. Seluruh Hak Cipta Dilindungi.</p>
+    <!-- Struktur Organisasi -->
+    <section class="py-20 bg-cream">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <div class="text-center mb-12">
+                <div class="section-title-arabic">الهيكل التنظيمي</div>
+                <h2 class="section-title-latin">Struktur Organisasi</h2>
+                <div class="section-title-line"></div>
+            </div>
+            <div class="card reveal text-center">
+                <p class="text-gray-400 text-sm">(isi akan ditambahkan)</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="pt-16 pb-8">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-10 pb-12 mb-8" style="border-bottom: 0.5px solid rgba(255,255,255,0.1);">
+                <div class="md:col-span-2">
+                    <div class="flex items-center gap-3 mb-5">
+                        <img src="../images/images.png" alt="Logo Al-Kholiliyah" class="w-11 h-11 object-contain rounded-full">
+                        <div>
+                            <p class="font-arabic text-lg text-accent">معهد الخليلية المباركة</p>
+                            <p class="text-white/60 text-xs uppercase tracking-wider">PP. Al-Kholiliyah Al-Mubarokah</p>
+                        </div>
+                    </div>
+                    <p class="text-white/50 text-sm max-w-md leading-relaxed mb-6">Lembaga pendidikan Islam yang berdedikasi mencetak generasi unggul, berakhlak mulia, dan berpegang teguh pada Al-Quran dan Sunnah.</p>
+                    <div class="flex gap-3">
+                        <a href="#" class="w-9 h-9 rounded-full bg-white/5 flex items-center justify-center text-white/60 hover:bg-accent hover:text-primary transition"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="w-9 h-9 rounded-full bg-white/5 flex items-center justify-center text-white/60 hover:bg-accent hover:text-primary transition"><i class="fab fa-twitter"></i></a>
+                        <a href="https://instagram.com/ponpes.alkholiliyahbrani" target="_blank" class="w-9 h-9 rounded-full bg-white/5 flex items-center justify-center text-white/60 hover:bg-accent hover:text-primary transition"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="w-9 h-9 rounded-full bg-white/5 flex items-center justify-center text-white/60 hover:bg-accent hover:text-primary transition"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-accent text-sm font-bold uppercase tracking-wider mb-5">Navigasi</h4>
+                    <ul class="space-y-3 text-white/50 text-sm">
+                        <li><a href="../index.html" class="hover:text-accent transition">Home</a></li>
+                        <li><a href="profil.html" class="hover:text-accent transition">Profil</a></li>
+                        <li><a href="berita.html" class="hover:text-accent transition">Berita</a></li>
+                        <li><a href="galeri.html" class="hover:text-accent transition">Galeri</a></li>
+                        <li><a href="kontak.html" class="hover:text-accent transition">Kontak</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-accent text-sm font-bold uppercase tracking-wider mb-5">Kontak</h4>
+                    <ul class="space-y-3 text-white/50 text-sm">
+                        <li class="flex gap-2"><i class="fas fa-map-marker-alt text-accent mt-1"></i> Desa Brani Kulon, Kec. Maron, Kab. Probolinggo 67276</li>
+                        <li class="flex gap-2"><i class="fab fa-whatsapp text-accent mt-1"></i> +62 812 3456 7890</li>
+                        <li class="flex gap-2"><i class="fab fa-instagram text-accent mt-1"></i> @ponpes.alkholiliyahbrani</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="text-center text-white/30 text-xs">
+                <p>&copy; 2025 PP. Al-Kholiliyah Al-Mubarokah. All rights reserved.</p>
+            </div>
         </div>
     </footer>
 

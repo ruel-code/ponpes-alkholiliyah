@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Warta & Berita | PP. Al-Kholiliyah</title>
+    <title>Berita | PP. Al-Kholiliyah</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
     <link rel="stylesheet" href="../css/style.css">
@@ -12,11 +12,15 @@
             theme: {
                 extend: {
                     colors: {
-                        'primary-dark': '#0d3d1f',
-                        'primary-green': '#1a5c30',
-                        'gold': '#c9a84c',
-                        'gold-light': '#e8c97a',
+                        'primary': '#0d3d1f',
+                        'secondary': '#1a5c30',
+                        'accent': '#c9a84c',
+                        'accent-light': '#e8c97a',
                         'cream': '#f9f5eb',
+                    },
+                    fontFamily: {
+                        'lora': ['Lora', 'serif'],
+                        'poppins': ['Poppins', 'sans-serif'],
                     }
                 }
             }
@@ -25,162 +29,225 @@
 </head>
 <body class="islamic-pattern">
 
-    <!-- Navbar -->
-    <nav id="main-nav" class="fixed w-full z-50 py-3 px-6 md:px-12 flex justify-between items-center nav-white">
+    <nav id="main-nav" class="fixed w-full z-50 transition-all duration-300 py-3 px-6 md:px-12 flex justify-between items-center">
         <div class="flex items-center gap-3">
-            <img src="https://via.placeholder.com/50" alt="Logo" class="w-12 h-12">
-            <div class="logo-text text-primary-dark">
-                <h1 class="font-arabic text-xl leading-none">معهد الخليلية للدراسات الإسلامية</h1>
-                <p class="text-xs font-bold uppercase tracking-tighter">YAYASAN PONDOK PESANTREN AL-KHOLILIYAH</p>
+            <img src="../images/images.png" alt="Logo Al-Kholiliyah" class="w-11 h-11 object-contain rounded-full">
+            <div>
+                <h1 class="font-arabic text-lg leading-tight text-white">معهد الخليلية المباركة</h1>
+                <p class="text-[10px] md:text-xs font-bold uppercase tracking-wide text-white/80">PP. Al-Kholiliyah Al-Mubarokah</p>
             </div>
         </div>
-        <div class="hidden lg:flex items-center gap-8">
-            <ul class="flex gap-6 text-gray-800 uppercase text-xs font-bold tracking-wider items-center">
-                <li><a href="../index.html" class="nav-link-item nav-link-dark hover:text-gold transition">Home</a></li>
-                <li><a href="berita.html" class="nav-link-item nav-link-dark active hover:text-gold transition">Berita</a></li>
-                <li>
-                    <a href="galeri.html" class="nav-link-item nav-link-dark hover:text-gold transition flex items-center">
-                        Galeri <i class="fas fa-chevron-down dropdown-icon"></i>
-                    </a>
-                </li>
-                <li><a href="profil.html" class="nav-link-item nav-link-dark hover:text-gold transition">Profil</a></li>
-                <li>
-                    <a href="peraturan.html" class="nav-link-item nav-link-dark hover:text-gold transition flex items-center">
-                        Peraturan <i class="fas fa-chevron-down dropdown-icon"></i>
-                    </a>
-                </li>
-                <li><a href="kontak.html" class="nav-link-item nav-link-dark hover:text-gold transition">Kontak</a></li>
+        <div class="hidden lg:flex items-center gap-6">
+            <ul class="flex gap-5 text-white text-xs font-bold uppercase tracking-wider items-center">
+                <li><a href="../index.html" class="nav-link-item">Home</a></li>
+                <li><a href="berita.html" class="nav-link-item active">Berita</a></li>
+                <li><a href="galeri.html" class="nav-link-item">Galeri</a></li>
+                <li><a href="profil.html" class="nav-link-item">Profil</a></li>
+                <li><a href="peraturan.html" class="nav-link-item">Peraturan</a></li>
+                <li><a href="kontak.html" class="nav-link-item">Kontak</a></li>
             </ul>
-            <button class="nav-link-item text-gray-800 hover:text-gold transition ml-4">
-                <i class="fas fa-search"></i>
-            </button>
         </div>
-        <button id="mobile-menu-btn" class="lg:hidden text-primary-dark text-2xl"><i class="fas fa-bars"></i></button>
+        <button id="mobile-menu-btn" class="lg:hidden text-white text-2xl">
+            <i class="fas fa-bars"></i>
+        </button>
     </nav>
 
-    <!-- Header Section -->
-    <section class="pt-40 pb-20 bg-primary-dark text-white text-center">
-        <div class="container mx-auto px-6">
-            <h1 class="text-4xl md:text-5xl font-bold mb-4 reveal active">Warta & Berita</h1>
-            <p class="text-gold-light tracking-widest uppercase font-medium reveal active">Update Kegiatan Pesantren Al-Kholiliyah</p>
+    <div id="mobile-menu" class="hidden fixed top-0 left-0 w-full h-full bg-primary/95 z-40 flex flex-col items-center justify-center gap-8">
+        <button id="close-menu" class="absolute top-6 right-6 text-white text-3xl"><i class="fas fa-times"></i></button>
+        <a href="../index.html" class="text-white text-2xl font-bold uppercase tracking-wider">Home</a>
+        <a href="berita.html" class="text-white text-2xl font-bold uppercase tracking-wider">Berita</a>
+        <a href="galeri.html" class="text-white text-2xl font-bold uppercase tracking-wider">Galeri</a>
+        <a href="profil.html" class="text-white text-2xl font-bold uppercase tracking-wider">Profil</a>
+        <a href="peraturan.html" class="text-white text-2xl font-bold uppercase tracking-wider">Peraturan</a>
+        <a href="kontak.html" class="text-white text-2xl font-bold uppercase tracking-wider">Kontak</a>
+    </div>
+
+    <section class="hero-mini">
+        <div class="container mx-auto px-6 text-center">
+            <p class="font-arabic text-accent text-lg mb-2">أخبار المعهد</p>
+            <h1 class="font-lora text-3xl md:text-4xl font-semibold text-white">Berita & Warta</h1>
+            <div class="section-title-line mx-auto mt-4"></div>
         </div>
     </section>
 
-    <!-- News List Section -->
-    <section class="py-24 bg-white">
+    <section class="py-16 bg-cream">
         <div class="container mx-auto px-6">
-            
-            <!-- Filters & Search -->
-            <div class="flex flex-col md:flex-row justify-between items-center mb-16 gap-6 reveal">
-                <div class="flex flex-wrap justify-center gap-4">
-                    <button class="px-6 py-2 rounded-full bg-primary-dark text-white font-bold">Semua</button>
-                    <button class="px-6 py-2 rounded-full bg-cream text-primary-dark hover:bg-gold hover:text-white transition font-medium">Kegiatan</button>
-                    <button class="px-6 py-2 rounded-full bg-cream text-primary-dark hover:bg-gold hover:text-white transition font-medium">Pengumuman</button>
-                    <button class="px-6 py-2 rounded-full bg-cream text-primary-dark hover:bg-gold hover:text-white transition font-medium">Prestasi</button>
-                </div>
-                <div class="relative w-full md:w-80">
-                    <input type="text" placeholder="Cari berita..." class="w-full pl-12 pr-4 py-3 bg-cream rounded-full focus:outline-none focus:ring-2 focus:ring-gold">
-                    <i class="fas fa-search absolute left-5 top-1/2 -translate-y-1/2 text-gray-400"></i>
-                </div>
+            <div class="flex flex-wrap gap-3 mb-10 justify-center">
+                <button class="filter-btn active" data-filter="all">Semua</button>
+                <button class="filter-btn" data-filter="kegiatan">Kegiatan</button>
+                <button class="filter-btn" data-filter="pengumuman">Pengumuman</button>
+                <button class="filter-btn" data-filter="prestasi">Prestasi</button>
             </div>
-
-            <!-- News Grid -->
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
-                <!-- Card 1-6 using different images -->
-                <article class="bg-cream rounded-2xl overflow-hidden hover-card reveal">
-                    <img src="https://picsum.photos/id/20/600/400" alt="News" class="w-full h-56 object-cover">
-                    <div class="p-8">
-                        <div class="flex items-center gap-4 mb-4">
-                            <span class="text-xs bg-gold text-white px-3 py-1 rounded-full uppercase font-bold tracking-widest">Kegiatan</span>
-                            <span class="text-gray-400 text-sm">25 Apr 2024</span>
-                        </div>
-                        <h3 class="text-xl font-bold mb-4 text-primary-dark leading-tight">Wisuda Tahfidz Angkatan X: Melahirkan 50 Hafiz Quran Baru</h3>
-                        <p class="text-gray-600 mb-6">Pondok Pesantren Al-Kholiliyah merayakan prestasi luar biasa dengan meluluskan 50 santri penghafal Al-Quran...</p>
-                        <a href="#" class="text-primary-green font-bold flex items-center gap-2 group">Baca Selengkapnya <i class="fas fa-arrow-right group-hover:translate-x-2 transition"></i></a>
+            <div class="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <div class="lg:col-span-2">
+                    <div class="grid md:grid-cols-2 gap-6" id="berita-grid">
+                        <article class="card card-hover p-0 overflow-hidden" data-category="kegiatan">
+                            <img src="../images/Momen bahagia para santri bersama segenap pengasuh pada hari raya idul adha tahun 2019.jpg" alt="Berita" class="w-full h-44 object-cover">
+                            <div class="p-5">
+                                <span class="badge">Kegiatan</span>
+                                <h3 class="font-lora text-base font-semibold text-primary mt-3 mb-2">Wisuda Tahfidz Angkatan X</h3>
+                                <p class="text-xs text-gray-500 mb-3">25 April 2025</p>
+                                <p class="text-sm text-gray-600 leading-relaxed">Alhamdulillah, 50 santri telah menyelesaikan hafalan 30 juz dan diwisuda dalam acara khidmat yang dihadiri para wali santri.</p>
+                            </div>
+                        </article>
+                        <article class="card card-hover p-0 overflow-hidden" data-category="pengumuman">
+                            <img src="../images/Momen bahagia para santri bersama segenap pengasuh pada hari raya idul adha tahun 2019 (1).jpg" alt="Berita" class="w-full h-44 object-cover">
+                            <div class="p-5">
+                                <span class="badge">Pengumuman</span>
+                                <h3 class="font-lora text-base font-semibold text-primary mt-3 mb-2">Pendaftaran Santri Baru</h3>
+                                <p class="text-xs text-gray-500 mb-3">20 April 2025</p>
+                                <p class="text-sm text-gray-600 leading-relaxed">Penerimaan santri baru tahun ajaran 2025/2026 telah dibuka. Segera daftarkan putra-putri Anda secara online.</p>
+                            </div>
+                        </article>
+                        <article class="card card-hover p-0 overflow-hidden" data-category="prestasi">
+                            <img src="../images/Momen bahagia para santri bersama segenap pengasuh pada hari raya idul adha tahun 2019 (2).jpg" alt="Berita" class="w-full h-44 object-cover">
+                            <div class="p-5">
+                                <span class="badge">Prestasi</span>
+                                <h3 class="font-lora text-base font-semibold text-primary mt-3 mb-2">Juara MHQ Tingkat Provinsi</h3>
+                                <p class="text-xs text-gray-500 mb-3">15 April 2025</p>
+                                <p class="text-sm text-gray-600 leading-relaxed">Santri kami meraih juara 1 Musabaqah Hifzhil Quran se-Jawa Timur yang digelar di Surabaya.</p>
+                            </div>
+                        </article>
+                        <article class="card card-hover p-0 overflow-hidden" data-category="kegiatan">
+                            <img src="../images/Momen bahagia para santri bersama segenap pengasuh pada hari raya idul adha tahun 2019 (3).jpg" alt="Berita" class="w-full h-44 object-cover">
+                            <div class="p-5">
+                                <span class="badge">Kegiatan</span>
+                                <h3 class="font-lora text-base font-semibold text-primary mt-3 mb-2">Kunjungan Ulama Al-Azhar</h3>
+                                <p class="text-xs text-gray-500 mb-3">10 April 2025</p>
+                                <p class="text-sm text-gray-600 leading-relaxed">Syeikh Dr. Ammar dari Al-Azhar Kairo memberikan kuliah umum tentang pentingnya sanad keilmuan.</p>
+                            </div>
+                        </article>
+                        <article class="card card-hover p-0 overflow-hidden" data-category="pengumuman">
+                            <img src="../images/Makan bersama para santri bersama segenap keluarga ndalem dan alumni pada hari raya idul adha 14.jpg" alt="Berita" class="w-full h-44 object-cover">
+                            <div class="p-5">
+                                <span class="badge">Pengumuman</span>
+                                <h3 class="font-lora text-base font-semibold text-primary mt-3 mb-2">Libur Semester Genap</h3>
+                                <p class="text-xs text-gray-500 mb-3">5 April 2025</p>
+                                <p class="text-sm text-gray-600 leading-relaxed">Libur semester genap dimulai pada 15 Juni 2025. Santri dijadwalkan kembali pada 10 Juli 2025.</p>
+                            </div>
+                        </article>
+                        <article class="card card-hover p-0 overflow-hidden" data-category="prestasi">
+                            <img src="../images/Tahun baru semangat baru.jpg" alt="Berita" class="w-full h-44 object-cover">
+                            <div class="p-5">
+                                <span class="badge">Prestasi</span>
+                                <h3 class="font-lora text-base font-semibold text-primary mt-3 mb-2">Olimpiade Sains Nasional</h3>
+                                <p class="text-xs text-gray-500 mb-3">1 April 2025</p>
+                                <p class="text-sm text-gray-600 leading-relaxed">Santri SMA Plus meraih medali perak dalam Olimpiade Sains Nasional bidang Matematika.</p>
+                            </div>
+                        </article>
                     </div>
-                </article>
-                <article class="bg-cream rounded-2xl overflow-hidden hover-card reveal">
-                    <img src="https://picsum.photos/id/21/600/400" alt="News" class="w-full h-56 object-cover">
-                    <div class="p-8">
-                        <div class="flex items-center gap-4 mb-4">
-                            <span class="text-xs bg-primary-green text-white px-3 py-1 rounded-full uppercase font-bold tracking-widest">Pendidikan</span>
-                            <span class="text-gray-400 text-sm">20 Apr 2024</span>
-                        </div>
-                        <h3 class="text-xl font-bold mb-4 text-primary-dark leading-tight">Kunjungan Ulama Mesir: Motivasi Tholabul Ilmi Bagi Santri</h3>
-                        <p class="text-gray-600 mb-6">Syeikh Dr. Ammar dari Al-Azhar Kairo memberikan kuliah umum tentang pentingnya sanad keilmuan di era digital...</p>
-                        <a href="#" class="text-primary-green font-bold flex items-center gap-2 group">Baca Selengkapnya <i class="fas fa-arrow-right group-hover:translate-x-2 transition"></i></a>
+                    <div class="flex justify-center gap-2 mt-12">
+                        <button class="pagination-btn active">1</button>
+                        <button class="pagination-btn">2</button>
+                        <button class="pagination-btn">3</button>
+                        <button class="pagination-btn"><i class="fas fa-chevron-right"></i></button>
                     </div>
-                </article>
-                <article class="bg-cream rounded-2xl overflow-hidden hover-card reveal">
-                    <img src="https://picsum.photos/id/22/600/400" alt="News" class="w-full h-56 object-cover">
-                    <div class="p-8">
-                        <div class="flex items-center gap-4 mb-4">
-                            <span class="text-xs bg-red-600 text-white px-3 py-1 rounded-full uppercase font-bold tracking-widest">Pengumuman</span>
-                            <span class="text-gray-400 text-sm">15 Apr 2024</span>
+                </div>
+                <aside class="space-y-6">
+                    <div class="sidebar-card">
+                        <h3 class="font-lora text-base font-semibold text-primary mb-4">Berita Populer</h3>
+                        <div class="space-y-4">
+                            <div class="flex gap-3">
+                                <img src="../images/Momen bahagia para santri bersama segenap pengasuh pada hari raya idul adha tahun 2019 (1).jpg" alt="Thumb" class="w-16 h-16 object-cover rounded-md flex-shrink-0">
+                                <div>
+                                    <p class="text-xs font-semibold text-primary">Wisuda Tahfidz Angkatan X</p>
+                                    <p class="text-[11px] text-gray-400">25 April 2025</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-3">
+                                <img src="../images/Momen bahagia para santri bersama segenap pengasuh pada hari raya idul adha tahun 2019 (2).jpg" alt="Thumb" class="w-16 h-16 object-cover rounded-md flex-shrink-0">
+                                <div>
+                                    <p class="text-xs font-semibold text-primary">Juara MHQ Tingkat Provinsi</p>
+                                    <p class="text-[11px] text-gray-400">15 April 2025</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-3">
+                                <img src="../images/Momen bahagia para santri bersama segenap pengasuh pada hari raya idul adha tahun 2019 (3).jpg" alt="Thumb" class="w-16 h-16 object-cover rounded-md flex-shrink-0">
+                                <div>
+                                    <p class="text-xs font-semibold text-primary">Kunjungan Ulama Al-Azhar</p>
+                                    <p class="text-[11px] text-gray-400">10 April 2025</p>
+                                </div>
+                            </div>
                         </div>
-                        <h3 class="text-xl font-bold mb-4 text-primary-dark leading-tight">Pendaftaran Santri Baru Tahun Ajaran 2024/2025 Dibuka</h3>
-                        <p class="text-gray-600 mb-6">Informasi lengkap pendaftaran, persyaratan, dan jadwal tes seleksi untuk santri putra dan putri...</p>
-                        <a href="#" class="text-primary-green font-bold flex items-center gap-2 group">Baca Selengkapnya <i class="fas fa-arrow-right group-hover:translate-x-2 transition"></i></a>
                     </div>
-                </article>
-                <!-- More placeholders -->
-                <article class="bg-cream rounded-2xl overflow-hidden hover-card reveal">
-                    <img src="https://picsum.photos/id/23/600/400" alt="News" class="w-full h-56 object-cover">
-                    <div class="p-8">
-                        <div class="flex items-center gap-4 mb-4">
-                            <span class="text-xs bg-gold text-white px-3 py-1 rounded-full uppercase font-bold tracking-widest">Prestasi</span>
-                            <span class="text-gray-400 text-sm">10 Apr 2024</span>
-                        </div>
-                        <h3 class="text-xl font-bold mb-4 text-primary-dark leading-tight">Santri Al-Kholiliyah Juara 1 MQK Tingkat Provinsi</h3>
-                        <p class="text-gray-600 mb-6">Perwakilan santri berhasil meraih juara umum dalam Musabaqah Qiraatil Kutub (MQK) tingkat Jawa Timur...</p>
-                        <a href="#" class="text-primary-green font-bold flex items-center gap-2 group">Baca Selengkapnya <i class="fas fa-arrow-right group-hover:translate-x-2 transition"></i></a>
+                    <div class="sidebar-card">
+                        <h3 class="font-lora text-base font-semibold text-primary mb-4">Kategori</h3>
+                        <ul class="space-y-2 text-sm">
+                            <li class="flex justify-between text-gray-600"><span>Kegiatan</span><span class="text-accent font-semibold">4</span></li>
+                            <li class="flex justify-between text-gray-600"><span>Pengumuman</span><span class="text-accent font-semibold">3</span></li>
+                            <li class="flex justify-between text-gray-600"><span>Prestasi</span><span class="text-accent font-semibold">2</span></li>
+                        </ul>
                     </div>
-                </article>
-                <article class="bg-cream rounded-2xl overflow-hidden hover-card reveal">
-                    <img src="https://picsum.photos/id/24/600/400" alt="News" class="w-full h-56 object-cover">
-                    <div class="p-8">
-                        <div class="flex items-center gap-4 mb-4">
-                            <span class="text-xs bg-primary-green text-white px-3 py-1 rounded-full uppercase font-bold tracking-widest">Sarana</span>
-                            <span class="text-gray-400 text-sm">05 Apr 2024</span>
-                        </div>
-                        <h3 class="text-xl font-bold mb-4 text-primary-dark leading-tight">Pembangunan Perpustakaan Digital Mulai Tahap Konstruksi</h3>
-                        <p class="text-gray-600 mb-6">Fasilitas baru ini akan menampung ribuan kitab fisik dan akses ke ribuan e-book keislaman...</p>
-                        <a href="#" class="text-primary-green font-bold flex items-center gap-2 group">Baca Selengkapnya <i class="fas fa-arrow-right group-hover:translate-x-2 transition"></i></a>
-                    </div>
-                </article>
-                <article class="bg-cream rounded-2xl overflow-hidden hover-card reveal">
-                    <img src="https://picsum.photos/id/25/600/400" alt="News" class="w-full h-56 object-cover">
-                    <div class="p-8">
-                        <div class="flex items-center gap-4 mb-4">
-                            <span class="text-xs bg-gold text-white px-3 py-1 rounded-full uppercase font-bold tracking-widest">Kesehatan</span>
-                            <span class="text-gray-400 text-sm">01 Apr 2024</span>
-                        </div>
-                        <h3 class="text-xl font-bold mb-4 text-primary-dark leading-tight">Bakti Sosial & Pemeriksaan Kesehatan Gratis Untuk Warga</h3>
-                        <p class="text-gray-600 mb-6">Kegiatan rutin tahunan santri berkhidmat untuk masyarakat sekitar pondok di wilayah Maron...</p>
-                        <a href="#" class="text-primary-green font-bold flex items-center gap-2 group">Baca Selengkapnya <i class="fas fa-arrow-right group-hover:translate-x-2 transition"></i></a>
-                    </div>
-                </article>
-            </div>
-
-            <!-- Pagination -->
-            <div class="flex justify-center mt-20 gap-2 reveal">
-                <a href="#" class="w-12 h-12 rounded-lg bg-cream text-primary-dark flex items-center justify-center hover:bg-gold hover:text-white transition"><i class="fas fa-chevron-left"></i></a>
-                <a href="#" class="w-12 h-12 rounded-lg bg-primary-dark text-white flex items-center justify-center font-bold">1</a>
-                <a href="#" class="w-12 h-12 rounded-lg bg-cream text-primary-dark flex items-center justify-center hover:bg-gold hover:text-white transition font-bold">2</a>
-                <a href="#" class="w-12 h-12 rounded-lg bg-cream text-primary-dark flex items-center justify-center hover:bg-gold hover:text-white transition font-bold">3</a>
-                <a href="#" class="w-12 h-12 rounded-lg bg-cream text-primary-dark flex items-center justify-center hover:bg-gold hover:text-white transition"><i class="fas fa-chevron-right"></i></a>
+                </aside>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-primary-dark text-white pt-10 pb-10">
-        <div class="container mx-auto px-6 text-center text-white/40 text-sm">
-            <p>&copy; 2024 PP. Al-Kholiliyah Maron Probolinggo. Seluruh Hak Cipta Dilindungi.</p>
+    <!-- Video Berita -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-6 text-center mb-10">
+            <div class="section-title-arabic">فيديو المعهد</div>
+            <h2 class="section-title-latin">Video Terkini</h2>
+            <div class="section-title-line"></div>
+        </div>
+        <div class="container mx-auto px-6 max-w-5xl">
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="aspect-video rounded-xl overflow-hidden shadow-md">
+                    <iframe src="https://www.youtube.com/embed/vU0jcYXv7cE" title="YouTube video" class="w-full h-full" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="aspect-video rounded-xl overflow-hidden shadow-md">
+                    <iframe src="https://www.youtube.com/embed/rNG2wxHAC3o" title="YouTube video" class="w-full h-full" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="pt-16 pb-8">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-10 pb-12 mb-8" style="border-bottom: 0.5px solid rgba(255,255,255,0.1);">
+                <div class="md:col-span-2">
+                    <div class="flex items-center gap-3 mb-5">
+                        <img src="../images/images.png" alt="Logo Al-Kholiliyah" class="w-11 h-11 object-contain rounded-full">
+                        <div>
+                            <p class="font-arabic text-lg text-accent">معهد الخليلية المباركة</p>
+                            <p class="text-white/60 text-xs uppercase tracking-wider">PP. Al-Kholiliyah Al-Mubarokah</p>
+                        </div>
+                    </div>
+                    <p class="text-white/50 text-sm max-w-md leading-relaxed mb-6">Lembaga pendidikan Islam yang berdedikasi mencetak generasi unggul, berakhlak mulia, dan berpegang teguh pada Al-Quran dan Sunnah.</p>
+                    <div class="flex gap-3">
+                        <a href="#" class="w-9 h-9 rounded-full bg-white/5 flex items-center justify-center text-white/60 hover:bg-accent hover:text-primary transition"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="w-9 h-9 rounded-full bg-white/5 flex items-center justify-center text-white/60 hover:bg-accent hover:text-primary transition"><i class="fab fa-twitter"></i></a>
+                        <a href="https://instagram.com/ponpes.alkholiliyahbrani" target="_blank" class="w-9 h-9 rounded-full bg-white/5 flex items-center justify-center text-white/60 hover:bg-accent hover:text-primary transition"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="w-9 h-9 rounded-full bg-white/5 flex items-center justify-center text-white/60 hover:bg-accent hover:text-primary transition"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-accent text-sm font-bold uppercase tracking-wider mb-5">Navigasi</h4>
+                    <ul class="space-y-3 text-white/50 text-sm">
+                        <li><a href="../index.html" class="hover:text-accent transition">Home</a></li>
+                        <li><a href="profil.html" class="hover:text-accent transition">Profil</a></li>
+                        <li><a href="berita.html" class="hover:text-accent transition">Berita</a></li>
+                        <li><a href="galeri.html" class="hover:text-accent transition">Galeri</a></li>
+                        <li><a href="kontak.html" class="hover:text-accent transition">Kontak</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-accent text-sm font-bold uppercase tracking-wider mb-5">Kontak</h4>
+                    <ul class="space-y-3 text-white/50 text-sm">
+                        <li class="flex gap-2"><i class="fas fa-map-marker-alt text-accent mt-1"></i> Desa Brani Kulon, Kec. Maron, Kab. Probolinggo 67276</li>
+                        <li class="flex gap-2"><i class="fab fa-whatsapp text-accent mt-1"></i> +62 812 3456 7890</li>
+                        <li class="flex gap-2"><i class="fab fa-instagram text-accent mt-1"></i> @ponpes.alkholiliyahbrani</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="text-center text-white/30 text-xs">
+                <p>&copy; 2025 PP. Al-Kholiliyah Al-Mubarokah. All rights reserved.</p>
+            </div>
         </div>
     </footer>
 
     <script src="../js/navbar.js"></script>
+    <script src="../js/galeri.js"></script>
     <script src="../js/main.js"></script>
 </body>
 </html>

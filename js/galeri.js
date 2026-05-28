@@ -1,10 +1,4 @@
-/**
- * galeri.js
- * Inisialisasi slider Swiper untuk galeri dan slider utama
- */
-
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Swiper untuk Galeri Grid di Homepage
     if (document.querySelector('.galeri-swiper')) {
         new Swiper('.galeri-swiper', {
             slidesPerView: 1,
@@ -18,12 +12,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 prevEl: '.swiper-button-prev',
             },
             breakpoints: {
-                640: {
-                    slidesPerView: 2,
-                },
-                1024: {
-                    slidesPerView: 3,
-                },
+                640: { slidesPerView: 2 },
+                1024: { slidesPerView: 3 },
             },
             autoplay: {
                 delay: 3000,
@@ -32,20 +22,15 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 2. Logic Filter Galeri (untuk halaman galeri.html)
     const filterButtons = document.querySelectorAll('.filter-btn');
     const galeriItems = document.querySelectorAll('.galeri-item');
 
     if (filterButtons.length > 0) {
         filterButtons.forEach(btn => {
             btn.addEventListener('click', () => {
+                filterButtons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
                 const filter = btn.getAttribute('data-filter');
-                
-                // Update button active state
-                filterButtons.forEach(b => b.classList.remove('bg-gold', 'text-white'));
-                btn.classList.add('bg-gold', 'text-white');
-
-                // Filter items
                 galeriItems.forEach(item => {
                     if (filter === 'all' || item.getAttribute('data-category') === filter) {
                         item.style.display = 'block';
